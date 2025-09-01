@@ -1,11 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-
+/* Your custom styles (v4 still supports @apply) */
 :root { color-scheme: light dark; }
+
 body { @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100; }
 .container { @apply mx-auto max-w-6xl px-4; }
 .btn { @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium shadow-sm border border-gray-200 dark:border-gray-800 hover:shadow transition; }
 .card { @apply rounded-2xl border border-gray-200 dark:border-gray-800 p-4 shadow-sm; }
 .input { @apply w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white/70 dark:bg-gray-900/70 px-3 py-2; }
+.input:focus { @apply outline-none ring-2 ring-blue-500; }
+a { @apply text-blue-600 hover:underline; }
+h1, h2, h3, h4, h5, h6 { @apply font-semibold; }
+h1 { @apply text-3xl; }
+h2 { @apply text-2xl; }
+h3 { @apply text-xl; }
+p { @apply my-2; }
+ul, ol { @apply my-2 list-disc list-inside; }
+img { @apply rounded-lg; }
+hr { @apply my-4 border-t border-gray-200 dark:border-gray-800; }
+code { @apply bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5 font-mono text-sm; }
+pre { @apply bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto; }
+blockquote { @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic text-gray-600 dark:text-gray-400; }
+table { @apply w-full border-collapse my-4; }
+th, td { @apply border border-gray-200 dark:border-gray-800 px-4 py-2; }
+th { @apply bg-gray-100 dark:bg-gray-800; }
