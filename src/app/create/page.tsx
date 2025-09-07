@@ -1,4 +1,6 @@
-'use client';
+"use client";
+
+import AuthGate from "@/components/AuthGate";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -18,15 +20,17 @@ localStorage.setItem('buzz_saved', JSON.stringify(saved));
 r.push('/saved');
 };
 return (
-<form onSubmit={onSubmit} className="grid gap-3 max-w-xl">
-<h1 className="text-2xl font-bold">Create an event</h1>
-<input className="input" placeholder="Title" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} required/>
-<input className="input" type="datetime-local" value={form.date} onChange={e=>setForm({...form,date:e.target.value})} required/>
-<input className="input" placeholder="City" value={form.city} onChange={e=>setForm({...form,city:e.target.value})} required/>
-<input className="input" placeholder="Venue" value={form.venue} onChange={e=>setForm({...form,venue:e.target.value})} />
-<input className="input" placeholder="Price (e.g. Free or $15)" value={form.price} onChange={e=>setForm({...form,price:e.target.value})} />
-<input className="input" placeholder="Image URL (optional)" value={form.image} onChange={e=>setForm({...form,image:e.target.value})} />
-<button className="btn bg-black text-white">Save (demo)</button>
-</form>
+    <AuthGate>
+        <form onSubmit={onSubmit} className="grid gap-3 max-w-xl">
+            <h1 className="text-2xl font-bold">Create an event</h1>
+            <input className="input" placeholder="Title" value={form.title} onChange={e=>setForm({...form,title:e.target.value})} required/>
+            <input className="input" type="datetime-local" value={form.date} onChange={e=>setForm({...form,date:e.target.value})} required/>
+            <input className="input" placeholder="City" value={form.city} onChange={e=>setForm({...form,city:e.target.value})} required/>
+            <input className="input" placeholder="Venue" value={form.venue} onChange={e=>setForm({...form,venue:e.target.value})} />
+            <input className="input" placeholder="Price (e.g. Free or $15)" value={form.price} onChange={e=>setForm({...form,price:e.target.value})} />
+            <input className="input" placeholder="Image URL (optional)" value={form.image} onChange={e=>setForm({...form,image:e.target.value})} />
+            <button className="btn bg-black text-white">Save (demo)</button>
+        </form>
+    </AuthGate>
 );
 }
