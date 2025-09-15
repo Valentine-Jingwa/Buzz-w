@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase'
+import Image from 'next/image'
 
 
 export default async function Profile({ params:{ handle } }:{ params:{ handle:string } }){
@@ -7,7 +8,8 @@ if(!data) return <div className="card">User not found</div>
 return (
 <div className="grid gap-4">
 <div className="flex items-center gap-3">
-<img src={data.avatar_url || '/icon.png'} className="h-16 w-16 rounded-full" alt=""/>
+{/* <img src={data.avatar_url || '/icon.png'} className="h-16 w-16 rounded-full" alt=""/> */}
+<Image src={data.avatar_url || '/icon.png'} className="h-16 w-16 rounded-full" alt="" width={64} height={64} />
 <div>
 <h1 className="text-2xl font-bold">@{data.handle}</h1>
 <p className="text-gray-600 dark:text-gray-400">{data.display_name}</p>

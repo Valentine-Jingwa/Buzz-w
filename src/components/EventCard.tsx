@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { EventItem } from '@/lib/mock';
+import Image from 'next/image';
 
 
 export default function EventCard({ e }: { e: EventItem }) {
 return (
 <Link href={`/event/${e.slug}`} className="card grid grid-cols-3 gap-4 hover:shadow-md">
-<img src={e.image || '/icon.png'} alt="" className="col-span-1 h-28 w-full object-cover rounded-xl"/>
+{/* <img src={e.image || '/icon.png'} alt="" className="col-span-1 h-28 w-full object-cover rounded-xl"/> */}
+<Image src={e.image || '/icon.png'} alt="" className="col-span-1 h-28 w-full object-cover rounded-xl" width={112} height={112} />
 <div className="col-span-2">
 <h3 className="text-lg font-semibold">{e.title}</h3>
 <p className="text-sm text-gray-600 dark:text-gray-400">{new Date(e.date).toLocaleString()} • {e.city}{e.venue?` • ${e.venue}`:''}</p>

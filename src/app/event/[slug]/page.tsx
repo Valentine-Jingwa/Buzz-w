@@ -2,6 +2,7 @@
 
 import { MOCK_EVENTS } from '@/lib/mock';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = { params: { slug: string } };
 
@@ -11,7 +12,8 @@ export default function EventDetail({ params }: Props) {
 
   return (
     <article className="grid gap-4">
-      <img src={e.image || '/icon.png'} alt="" className="w-full h-64 object-cover rounded-2xl" />
+      {/* <img src={e.image || '/icon.png'} alt="" className="w-full h-64 object-cover rounded-2xl" /> */}
+      <Image src={e.image || '/icon.png'} alt="" className="w-full h-64 object-cover rounded-2xl" width={640} height={256} />
       <h1 className="text-3xl font-bold">{e.title}</h1>
       <p className="text-gray-600 dark:text-gray-400">
         {new Date(e.date).toLocaleString()} • {e.city}{e.venue ? ` • ${e.venue}` : ''}
